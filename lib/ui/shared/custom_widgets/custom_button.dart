@@ -55,7 +55,7 @@ class CustomButton extends StatelessWidget {
               )
             : null,
         backgroundColor: backgroundColor ?? AppColors.mainOrangeColor,
-        shape: StadiumBorder(),
+       // shape: StadiumBorder(),
         fixedSize: Size(
           screenWidth(1.1),
           screenHieght(12),

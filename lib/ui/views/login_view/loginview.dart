@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter_templete/core/data/reposotories/shared_prefernces.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_button.dart';
@@ -23,18 +24,26 @@ class _LoginViewState extends State<LoginView> {
     return Scaffold(
       body: ListView(
         children: [
-          Center(child:Text('تسجسل الدخول'),),
-          Center(child :
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CustomTextField(mheight: 84, mwidth: 100, controller:nameControler),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CustomTextField(mheight: 84, mwidth: 100, controller:nameControler),
-          )
 
+
+          Center(child:Text('تسجسل الدخول'),),
+          Center(child: SvgPicture.asset('assets/images/Login.svg')),
+
+          Text('اسم المستخدم',style: TextStyle(color: AppColors.mainpurple1),),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomTextField(hinttext: 'اسم المستخدم',icon:Icon(Icons.person_2),mheight: 84, mwidth: 100, controller:nameControler),
+          ),
+          Text('رمز الدخول',style: TextStyle(color: AppColors.mainpurple1),),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomTextField(hinttext: 'رمز الدخول',icon:Icon(Icons.key_rounded),mheight: 84, mwidth: 100, controller:nameControler),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomButton(backgroundColor: AppColors.mainpurple1,text: "تسجيل الدخول", onPressed:(){}),
+          )
+    ])
 
 
           // CustomTextFormField(
@@ -81,8 +90,8 @@ class _LoginViewState extends State<LoginView> {
           //       //   });
           //       // })
           //     })
-        ],
-      ),
-    );
+
+      );
+
   }
 }
