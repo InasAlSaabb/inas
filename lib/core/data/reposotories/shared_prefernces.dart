@@ -113,14 +113,14 @@ class SharedPrefrenceRepostory {
       value: value,
     );
   }
-
-  String getAppLanguage() {
-    if (globalSharedPreference.containsKey(PREF_APP_LANG)) {
-      return getPreferenc(key: PREF_APP_LANG);
-    } else {
-      return AppConfig.defaultLanguage;
-    }
-  }
+  //
+  // String getAppLanguage() {
+  //   if (globalSharedPreference.containsKey(PREF_APP_LANG)) {
+  //     return getPreferenc(key: PREF_APP_LANG);
+  //   } else {
+  //     return AppConfig.defaultLanguage;
+  //   }
+  // }
 
   void setCartList(List<CartModel> list) {
     setPreference(

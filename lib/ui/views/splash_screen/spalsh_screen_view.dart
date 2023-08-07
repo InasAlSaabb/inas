@@ -26,17 +26,7 @@ class _SplashSceenViewState extends State<SplashSceenView> {
       alignment: Alignment.bottomCenter,
       fit: StackFit.passthrough,
       children: [
-        SvgPicture.asset(
-          'assets/images/bg_background.svg',
-          height: screenHieght(1),
-          width: screenWidth(1),
-        ),
-        Center(
-            child: SvgPicture.asset(
-          'assets/images/Logo.svg',
-          width: screenWidth(5),
-          height: screenHieght(5),
-        )),
+
         Container(
           margin: EdgeInsets.only(bottom: screenWidth(3)),
           // width: size.width*0.1,
