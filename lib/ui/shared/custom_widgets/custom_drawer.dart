@@ -27,7 +27,7 @@ class CustomDrawer extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {
-                SharedPrefrenceRepostory().clearTokenInfo();
+                SharedPreferencesRepository().clearTokenInfo();
                 Get.off(SplashSceenView());
               },
               icon: Icon(Icons.logout),
