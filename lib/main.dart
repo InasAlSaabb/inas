@@ -9,15 +9,15 @@ import 'package:flutter_templete/core/services/cart_services.dart';
 import 'package:flutter_templete/core/services/connectivity_service.dart';
 import 'package:flutter_templete/core/services/location_service.dart';
 import 'package:flutter_templete/core/services/notification_service.dart';
-import 'package:flutter_templete/firebase_options.dart';
+
 import 'package:get/get.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
-//  SharedPreferences ?globalSharedPreference;
+  SharedPreferences ?globalSharedPreference;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-// globalSharedPreference=await SharedPreferences.getInstance();
+globalSharedPreference=await SharedPreferences.getInstance();
   await Get.putAsync<SharedPreferences>(() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs;
@@ -26,16 +26,15 @@ Future<void> main() async {
   Get.put(CartService());
   //ram
   Get.put(ConnectivityService());
-  Get.put(MyAppController());
-  Get.put(LocationService());
-  try {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-    Get.put(NotificationService());
-  } catch (e) {
-    print(e);
-  }
+
+  // try {
+  //   await Firebase.initializeApp(
+  //     options: DefaultFirebaseOptions.currentPlatform,
+  //   );
+  //   Get.put(NotificationService());
+  // } catch (e) {
+  //   print(e);
+  // }
 
   runApp(MyApp());
 }

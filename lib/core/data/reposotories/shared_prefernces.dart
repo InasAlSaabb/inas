@@ -98,14 +98,14 @@ class SharedPreferencesRepository {
       value: value,
     );
   }
-
-  String getAppLanguage() {
-    if (globalSharedPreferences.containsKey(PREF_APP_LANG)) {
-      return getPreference(key: PREF_APP_LANG);
-    } else {
-      return AppConfig.defaultLanguage;
-    }
-  }
+  //
+  // String getAppLanguage() {
+  //   if (globalSharedPreference.containsKey(PREF_APP_LANG)) {
+  //     return getPreferenc(key: PREF_APP_LANG);
+  //   } else {
+  //     return AppConfig.defaultLanguage;
+  //   }
+  // }
 
   void setResetPasswordEmail(String value) {
     setPreference(
