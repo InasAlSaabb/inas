@@ -22,7 +22,7 @@ globalSharedPreference=await SharedPreferences.getInstance();
     final prefs = await SharedPreferences.getInstance();
     return prefs;
   });
-  Get.put(SharedPrefrenceRepostory());
+  Get.put(SharedPreferencesRepository());
   Get.put(CartService());
   //ram
   Get.put(ConnectivityService());

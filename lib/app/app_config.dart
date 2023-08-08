@@ -1,5 +1,6 @@
-// class AppConfig {
-//   static bool isLocationRequired = true;
-//   static String defaultLanguage = 'ar';
-//   // light
-// }
+class AppConfig {
+  static bool isLocationRequired = true;
+  static String defaultLanguage = 'en';
+  static bool scriptionStatus = true;
+  // light
+}
