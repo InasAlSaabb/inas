@@ -3,5 +3,7 @@ enum BottomNavigationEnum {
   OFFERS,
   HOME,
   PROFILE,
-  MORE
+  MORE,
+  FAVORATE,
+  NOTIFICATION,
 }
