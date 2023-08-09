@@ -42,7 +42,7 @@ class _LoginViewState extends State<LoginView> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: CustomTextField(
-              validator: (value){
+              validator: (value) {
                 if (value!.isEmpty) {
                   return 'أدخل حقل رمز الدخول';
                 }
@@ -50,8 +50,6 @@ class _LoginViewState extends State<LoginView> {
                   return 'تأكد ان رمز الدخول صحيح';
                 }
                 return null;
-
-
               },
               hinttext: 'اسم المستخدم',
               iconName: 'ic_user.svg',
@@ -66,7 +64,7 @@ class _LoginViewState extends State<LoginView> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: CustomTextField(
-              validator: (value){
+              validator: (value) {
                 if (value!.isEmpty) {
                   return 'أدخل حقل رمز الدخول';
                 }
@@ -74,8 +72,6 @@ class _LoginViewState extends State<LoginView> {
                   return 'تأكد ان رمز الدخول صحيح';
                 }
                 return null;
-
-
               },
               hinttext: 'رمز الدخول',
               iconName: 'ic_key.svg',
@@ -96,7 +92,6 @@ class _LoginViewState extends State<LoginView> {
           padding: const EdgeInsets.only(left: 40),
           child: Row(
             children: [
-
               InkWell(
                 onTap: () {},
                 child: CustomText(
