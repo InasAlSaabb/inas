@@ -8,6 +8,8 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:provider/provider.dart';
 
+import '../ui/views/login_view/loginview.dart';
+
 // ignore: must_be_immutable
 class MyApp extends StatelessWidget {
   MyApp({super.key});
@@ -16,38 +18,48 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //stream provider +type
-    return StreamProvider<ConnectivityStatus>(
-        //start value onilne
-        initialData: ConnectivityStatus.ONLINE,
-        //create stream
-        create: (context) =>
-            //object
-            //prodcust app
-            //for any thing stream
-            connectivityService.connectivityStatusController.stream,
-        child: GetMaterialApp(
-            defaultTransition: Transition.circularReveal,
-            transitionDuration: Duration(milliseconds: 12),
-            title: 'Flutter Demo',
-            builder: BotToastInit(),
-            locale: getlocal(),
-            fallbackLocale: getlocal(),
-            translations: AppTranslation(), //1. call BotToastInit
-            navigatorObservers: [BotToastNavigatorObserver()],
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
-            ),
-            home: SplashSceenView()));
-  }
-}
+    return MaterialApp(
 
-Locale getlocal() {
-  if (storage.getAppLanguage() == 'ar') {
-    return Locale('ar', 'SA');
-  } else if (storage.getAppLanguage() == 'tr') {
-    return Locale('tr', 'TR');
-  } else {
-    return Locale('en', 'US');
+      debugShowCheckedModeBanner: false,
+      title: 'darrbeni store',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home:LoginView() ,
+    );
+      //StreamProvider<ConnectivityStatus>(
+        //start value onilne
+        //initialData: ConnectivityStatus.ONLINE,
+        //create stream
+        //create: (context) =>
+        //     //object
+        //     //prodcust app
+        //     //for any thing stream
+        //     connectivityService.connectivityStatusController.stream,
+        //
+        // child: GetMaterialApp(
+         // defaultTransition: Transition.circularReveal,
+        //     transitionDuration: Duration(milliseconds: 12),
+        //     title: 'Flutter Demo',
+        //     builder: BotToastInit(),
+        //     //locale: getlocal(),
+        //     //fallbackLocale: getlocal(),
+        //     translations: AppTranslation(), //1. call BotToastInit
+        //     navigatorObservers: [BotToastNavigatorObserver()],
+        //     debugShowCheckedModeBanner: false,
+        //     theme: ThemeData(
+        //       primarySwatch: Colors.blue,
+        //     ),
+          //  home: SplashSceenView()));
   }
 }
+//
+// Locale getlocal() {
+//   if (storage.getAppLanguage() == 'ar') {
+//     return Locale('ar', 'SA');
+//   } else if (storage.getAppLanguage() == 'tr') {
+//     return Locale('tr', 'TR');
+//   } else {
+//     return Locale('en', 'US');
+//   }
+// }

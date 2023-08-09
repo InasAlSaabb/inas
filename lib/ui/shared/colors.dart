@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+  static Color mainpurple1 = Color.fromRGBO(111, 40, 119, 1);
+  static Color mainpurple2 = Color.fromRGBO(146, 63, 152, 1);
+  static Color mainpurple3 = Color.fromRGBO(185, 137, 189, 1);
+  static Color mainblue = Color.fromRGBO(32, 196, 244, 1);
+  static Color mainskycolor = Color.fromRGBO(185, 229, 251, 1);
+  static Color hinttext = Color.fromRGBO(70, 69, 71, 1);
+
+
+
+
+
   static Color mainOrangeColor = Color.fromRGBO(252, 96, 17, 1);
   static Color mainWhiteColor = Color.fromRGBO(255, 255, 255, 1);
   static Color transparentColor = Color.fromRGBO(255, 255, 255, 0);

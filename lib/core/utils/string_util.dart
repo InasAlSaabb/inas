@@ -5,12 +5,12 @@ class StringUtil {
     return regExp.hasMatch(value);
   }
 
-  bool isPassword(String value) {
+ static bool isPassword(String value) {
     RegExp regExp = new RegExp(r'^(?=.*?[A-Z])(?=.*?[!@#\$&*~]).{8,}$');
     return regExp.hasMatch(value);
   }
 
-  bool isName(String value) {
+  static bool isName(String value) {
     RegExp regExp = new RegExp(r'^[a-zA-Z]+(([,. -][a-zA-Z ])?[a-zA-Z]*)*$');
 
     return regExp.hasMatch(value);
