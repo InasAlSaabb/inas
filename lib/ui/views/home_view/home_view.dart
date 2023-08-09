@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_form.dart';
@@ -12,11 +13,10 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  TextEditingController controllerSearch=TextEditingController();
+  TextEditingController controllerSearch = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       body: Column(
         children: [
           Stack(
@@ -25,6 +25,7 @@ class _HomeViewState extends State<HomeView> {
               Row(
                 children: [
                   Icon(Icons.home),
+                  screenWidth(5).ph,
                   Text(
                     "الرئيسية",
                     style: TextStyle(color: AppColors.mainWhiteColor),
@@ -33,9 +34,9 @@ class _HomeViewState extends State<HomeView> {
               )
             ],
           ),
-        CustomTextFormField(controller:controllerSearch , , fillColor: null, hintText: '', hintTextColor: null,)
+          //CustomTextFormField(controller:controllerSearch , , fillColor: null, hintText: '', hintTextColor: null,)
         ],
       ),
-    ));
+    );
   }
 }

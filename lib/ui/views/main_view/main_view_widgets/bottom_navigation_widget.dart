@@ -21,18 +21,13 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        Padding(
-            padding: EdgeInsets.only(bottom: screenWidth(6)),
-            child: InkWell(
-              onTap: () {
-                widget.ontap(BottomNavigationEnum.HOME, 2);
-              },
-            )),
-        // SvgPicture.asset(
-        //   'assets/imagesbg_bottom_navigation.svg',
-        //   fit: BoxFit.fitWidth,
-        // ),
-
+        Container(
+          width: screenWidth(1),
+          height: screenHieght(10),
+          decoration: BoxDecoration(
+              color: AppColors.mainWhiteColor,
+              borderRadius: BorderRadius.circular(9)),
+        ),
         Positioned(
           bottom: screenWidth(12),
           left: screenWidth(20),
@@ -40,58 +35,47 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: screenWidth(40)),
             child: Row(children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  navItem(
-                      ontap: () {
-                        widget.ontap(BottomNavigationEnum.NOTIFICATION, 0);
-                      },
-                      size: size,
-                      imagename: 'ic_menu',
-                      text: 'Menue',
-                      isslected:
-                          widget.navitm == BottomNavigationEnum.NOTIFICATION),
-                  SizedBox(
-                    width: screenWidth(12),
-                  ),
-                  navItem(
-                      ontap: () {
-                        widget.ontap(BottomNavigationEnum.HOME, 1);
-                      },
-                      size: size,
-                      imagename: 'ic_shopping',
-                      text: 'Offers',
-                      isslected: widget.navitm == BottomNavigationEnum.HOME)
-                ],
-              ),
               SizedBox(
-                width: screenWidth(5.5),
+                width: screenWidth(9),
               ),
-              Row(
-                children: [
-                  navItem(
-                      ontap: () {
-                        widget.ontap(BottomNavigationEnum.FAVORATE, 3);
-                      },
-                      size: size,
-                      imagename: 'ic_user',
-                      text: 'Profile',
-                      isslected:
-                          widget.navitm == BottomNavigationEnum.FAVORATE),
-                  SizedBox(
-                    width: screenWidth(10),
-                  ),
-                  navItem(
-                      ontap: () {
-                        widget.ontap(BottomNavigationEnum.PROFILE, 4);
-                      },
-                      size: size,
-                      imagename: 'ic_more',
-                      text: 'More',
-                      isslected: widget.navitm == BottomNavigationEnum.PROFILE)
-                ],
-              )
+              navItem(
+                  ontap: () {
+                    widget.ontap(BottomNavigationEnum.NOTIFICATION, 0);
+                  },
+                  size: size,
+                  imagename: 'ic_notification',
+                  isslected:
+                      widget.navitm == BottomNavigationEnum.NOTIFICATION),
+              SizedBox(
+                width: screenWidth(7),
+              ),
+              navItem(
+                  ontap: () {
+                    widget.ontap(BottomNavigationEnum.HOME, 1);
+                  },
+                  size: size,
+                  imagename: 'ic_home',
+                  isslected: widget.navitm == BottomNavigationEnum.HOME),
+              SizedBox(
+                width: screenWidth(7),
+              ),
+              navItem(
+                  ontap: () {
+                    widget.ontap(BottomNavigationEnum.FAVORATE, 3);
+                  },
+                  size: size,
+                  imagename: 'ic_star',
+                  isslected: widget.navitm == BottomNavigationEnum.FAVORATE),
+              SizedBox(
+                width: screenWidth(7),
+              ),
+              navItem(
+                  ontap: () {
+                    widget.ontap(BottomNavigationEnum.PROFILE, 4);
+                  },
+                  size: size,
+                  imagename: 'ic_profile',
+                  isslected: widget.navitm == BottomNavigationEnum.PROFILE)
             ]),
           ),
         ),
@@ -102,7 +86,6 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   Widget navItem(
       {required Size size,
       required String imagename,
-      required String text,
       required bool isslected,
       required Function ontap}) {
     return InkWell(
@@ -113,14 +96,18 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
         children: [
           SvgPicture.asset(
             'assets/images/$imagename.svg',
-            color: isslected ? AppColors : AppColors.mainpurple3,
+            color: isslected ? AppColors.mainpurple1 : AppColors.mainpurple3,
             width: screenWidth(20),
+          ),
+          SizedBox(
+            height: screenWidth(40),
           ),
           Visibility(
               visible: isslected,
               child: Container(
-                width: screenWidth(20),
-                height: screenHieght(1),
+                color: AppColors.mainpurple1,
+                width: screenWidth(10),
+                height: screenHieght(300),
               ))
         ],
       ),
