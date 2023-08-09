@@ -8,6 +8,8 @@ import 'package:get/get.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../main.dart';
+
 class SharedPreferencesRepository {
   SharedPreferences globalSharedPreferences = Get.find();
   //!--- Keys ----
@@ -98,14 +100,14 @@ class SharedPreferencesRepository {
       value: value,
     );
   }
-  //
-  // String getAppLanguage() {
-  //   if (globalSharedPreference.containsKey(PREF_APP_LANG)) {
-  //     return getPreferenc(key: PREF_APP_LANG);
-  //   } else {
-  //     return AppConfig.defaultLanguage;
-  //   }
-  // }
+
+  String getAppLanguage() {
+    if (globalSharedPreference!.containsKey(PREF_APP_LANG)) {
+      return getPreference(key: PREF_APP_LANG);
+    } else {
+      return AppConfig.defaultLanguage;
+    }
+  }
 
   void setResetPasswordEmail(String value) {
     setPreference(

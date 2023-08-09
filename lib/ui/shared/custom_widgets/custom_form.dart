@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
 
@@ -6,7 +7,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     this.hinttext,
-    this.icon,
+
     required this.mheight,
     required this.mwidth,
     this.fontsize,
@@ -14,9 +15,10 @@ class CustomTextField extends StatelessWidget {
     required this.controller,
     this.errorText,
     this.validator,
+    this.iconName
   });
 
-  final Icon? icon;
+
   final String? Function(String?)? validator;
   final String? hinttext;
   final double mheight;
@@ -25,22 +27,24 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final double? bradius;
   final String? errorText;
-
+final String? iconName;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textAlign:TextAlign.right,
+      textDirection: TextDirection.rtl,
       textInputAction: TextInputAction.next,
       validator: validator,
       controller: controller,
       decoration: InputDecoration(
-        prefixIcon: icon,
+       suffixIcon:  SvgPicture.asset('assets/images/${iconName}' ,width: 0,height:2 ,color: AppColors.mainpurple1,fit: BoxFit.fill,) ,
         filled: true,
         fillColor: AppColors.mainskycolor,
         constraints: BoxConstraints(maxWidth: mwidth, maxHeight: mheight),
-        contentPadding: const EdgeInsets.only(left: 30),
+        contentPadding: const EdgeInsets.all(10),
         hintText: hinttext,
         hintStyle:
-            TextStyle(color: AppColors.mainskycolor, fontSize: fontsize ?? 14),
+            TextStyle(color: AppColors.mainpurple3, fontSize: fontsize ?? 14),
         enabledBorder: OutlineInputBorder(
           borderSide: new BorderSide(
             color: AppColors.mainskycolor,

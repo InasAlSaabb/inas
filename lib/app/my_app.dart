@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //stream provider +type
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       title: 'darrbeni store',
       theme: ThemeData(
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         //     connectivityService.connectivityStatusController.stream,
         //
         // child: GetMaterialApp(
-        //     defaultTransition: Transition.circularReveal,
+         // defaultTransition: Transition.circularReveal,
         //     transitionDuration: Duration(milliseconds: 12),
         //     title: 'Flutter Demo',
         //     builder: BotToastInit(),

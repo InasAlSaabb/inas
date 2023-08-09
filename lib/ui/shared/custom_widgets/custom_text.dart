@@ -8,7 +8,7 @@ class CustomText extends StatelessWidget {
     this.fontSize,
     this.bold = false,
     required this.text,
-    required TextAlign textAlign,
+
   });
   final Color? textColor;
   final double? fontSize;
@@ -17,7 +17,8 @@ class CustomText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-        textAlign: TextAlign.center,
+
+        textAlign: TextAlign.right,
         text,
         style: TextStyle(
           fontWeight: bold == true ? FontWeight.bold : FontWeight.normal,
