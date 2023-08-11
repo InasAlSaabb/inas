@@ -116,7 +116,7 @@ class _LoginViewState extends State<LoginView> {
                 text: tr("key_login"),
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {}
-                  Get.off(const SignupView());
+                  Get.to(const SignupView());
                 }),
             (screenWidth(25)).ph,
             Row(

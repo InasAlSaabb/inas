@@ -38,9 +38,10 @@ class _SignupViewState extends State<SignupView> {
               children: [
                 InkWell(
                   onTap: () {
-                    Get.to(LoginView());
+                    Get.back();
                   },
                   child: SvgPicture.asset(
+                    color: AppColors.hinttext,
                     "assets/images/ic_arrow.svg",
                     width: screenWidth(20),
                     height: screenHieght(30),
@@ -93,7 +94,7 @@ class _SignupViewState extends State<SignupView> {
             ),
             (screenWidth(25)).ph,
             CustomTextField(
-              controller: nameControler,
+              controller: phoneControler,
               mheight: screenHieght(12),
               mwidth: screenWidth(1),
               iconName: "ic_phone.svg",
@@ -170,7 +171,7 @@ class _SignupViewState extends State<SignupView> {
         CustomText(
           text: tr(key),
           fontSize: screenWidth(39),
-          textColor: AppColors.mainblack,
+          textColor: AppColors.hinttext,
         )
       ]),
     );
