@@ -8,8 +8,6 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:provider/provider.dart';
 
-import '../ui/shared/utils.dart';
-
 // ignore: must_be_immutable
 class MyApp extends StatelessWidget {
   MyApp({super.key});
