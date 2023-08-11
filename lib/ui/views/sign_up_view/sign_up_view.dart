@@ -97,7 +97,7 @@ class _SignupViewState extends State<SignupView> {
               controller: phoneControler,
               mheight: screenHieght(12),
               mwidth: screenWidth(1),
-              iconName: "ic_phone.svg",
+              iconName: "login signup icons.svg",
               hinttext: tr("key_mobile_num"),
             ),
             (screenWidth(25)).ph,
