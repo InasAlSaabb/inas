@@ -7,6 +7,7 @@ import 'package:flutter_templete/ui/shared/custom_widgets/custom_button.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_form.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_text.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
+import 'package:flutter_templete/ui/views/login_view/loginview.dart';
 import 'package:flutter_templete/ui/views/sign_up_view/sign_up_controller.dart';
 import 'package:get/get.dart';
 
@@ -35,10 +36,15 @@ class _SignupViewState extends State<SignupView> {
             Row(
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SvgPicture.asset(
-                  "assets/images/ic_arrow.svg",
-                  width: screenWidth(20),
-                  height: screenHieght(30),
+                InkWell(
+                  onTap: () {
+                    Get.to(LoginView());
+                  },
+                  child: SvgPicture.asset(
+                    "assets/images/ic_arrow.svg",
+                    width: screenWidth(20),
+                    height: screenHieght(30),
+                  ),
                 ),
                 SizedBox(
                   width: screenWidth(3.5),
