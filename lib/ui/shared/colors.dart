@@ -8,9 +8,7 @@ class AppColors {
   static Color mainskycolor = Color.fromRGBO(185, 229, 251, 1);
   static Color hinttext = Color.fromRGBO(70, 69, 71, 1);
 
-
-
-
+  static Color hinttext2 = Color.fromARGB(55, 185, 229, 250);
 
   static Color mainOrangeColor = Color.fromRGBO(252, 96, 17, 1);
   static Color mainWhiteColor = Color.fromRGBO(255, 255, 255, 1);
