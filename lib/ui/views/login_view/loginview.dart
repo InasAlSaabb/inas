@@ -8,6 +8,7 @@ import 'package:flutter_templete/ui/shared/custom_widgets/custom_button.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_form.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_text.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
+import 'package:flutter_templete/ui/views/main_view/main_view.dart';
 import 'package:flutter_templete/ui/views/sign_up_view/sign_up_view.dart';
 import 'package:get/get.dart';
 
@@ -137,7 +138,9 @@ class _LoginViewState extends State<LoginView> {
             ),
             (screenWidth(2.5)).ph,
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.to(MainView());
+              },
               child: Text(
                 tr("key_visit"),
                 style: TextStyle(
