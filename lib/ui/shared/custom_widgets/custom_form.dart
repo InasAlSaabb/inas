@@ -34,12 +34,13 @@ class CustomTextField extends StatelessWidget {
       validator: validator,
       controller: controller,
       decoration: InputDecoration(
-        prefixIcon: SvgPicture.asset(
-          'assets/images/${iconName}',
-          width: 0,
-          height: 1,
-          color: AppColors.mainpurple1withopa,
-          // fit: BoxFit.fill,
+        prefixIcon: UnconstrainedBox(
+          child: SvgPicture.asset(
+            'assets/images/${iconName}',
+            width: screenWidth(20),
+            color: AppColors.mainpurple1withopa,
+            // fit: BoxFit.fill,
+          ),
         ),
         filled: true,
         fillColor: AppColors.mainskycolor2,
