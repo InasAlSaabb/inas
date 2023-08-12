@@ -18,5 +18,6 @@ class ENLanguage {
         "key_faculty_of_pharmac": "Faculty of Pharmacy",
         "key_dentist": "Dentistry",
         "key_medicine": "Medicine",
+        "key-overlay": "Please sign up to complete the browsing process"
       };
 }

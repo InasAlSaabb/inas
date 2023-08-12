@@ -1,10 +1,5 @@
-import 'package:flutter_templete/core/enums/message_type.dart';
-import 'package:flutter_templete/ui/shared/custom_widgets/custom_toast.dart';
 import 'package:flutter_templete/ui/views/login_view/loginview.dart';
-
 import 'package:get/get.dart';
-
-import '../../shared/utils.dart';
 
 class SplashSceenController extends GetxController {
   @override

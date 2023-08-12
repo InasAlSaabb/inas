@@ -18,5 +18,6 @@ class ARLanguage {
         "key_dentist": "طب الأسنان",
         "key_medicine": "الطب البشري",
         "key_create_account1": "إنشاء حساب",
+        "key-overlay": "يرجى الإشتراك لإتمام عملية التصفح"
       };
 }

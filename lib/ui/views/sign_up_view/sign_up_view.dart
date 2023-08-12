@@ -5,6 +5,7 @@ import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_button.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_form.dart';
+import 'package:flutter_templete/ui/shared/custom_widgets/custom_overlay.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_text.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
 import 'package:flutter_templete/ui/views/login_view/loginview.dart';
@@ -32,7 +33,7 @@ class _SignupViewState extends State<SignupView> {
       resizeToAvoidBottomInset: false,
       body: Padding(
           padding: EdgeInsetsDirectional.all(screenWidth(18)),
-          child: Column(children: [
+          child: ListView(children: [
             (screenWidth(20)).ph,
             Row(
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -128,7 +129,8 @@ class _SignupViewState extends State<SignupView> {
             (screenWidth(10)).ph,
             CustomButton(
               onPressed: () {
-                Get.off(const SignupView());
+                // Get.off(const SignupView());
+                CustomOverlay();
               },
               backgroundColor: AppColors.mainpurple1,
               text: tr("key_create_account1"),
@@ -143,7 +145,9 @@ class _SignupViewState extends State<SignupView> {
                   textColor: AppColors.hinttext,
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(LoginView());
+                  },
                   child: CustomText(
                     fontSize: screenWidth(25),
                     text: tr("key_login"),
