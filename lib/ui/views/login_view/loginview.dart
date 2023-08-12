@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flutter_templete/core/data/reposotories/shared_prefernces.dart';
-import 'package:flutter_templete/ui/shared/colors.dart';
+import 'package:flutter_templete/core/translation/app_translation.dart';
 import 'package:flutter_templete/core/utils/string_util.dart';
+import 'package:flutter_templete/main.dart';
+import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_button.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_form.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_text.dart';
-
-import '../../../core/data/reposotories/user_repository.dart';
-import '../../shared/custom_widgets/custom_toast.dart';
-import 'login_controller.dart';
+import 'package:flutter_templete/ui/shared/utils.dart';
+import 'package:flutter_templete/ui/views/main_view/main_view.dart';
+import 'package:flutter_templete/ui/views/sign_up_view/sign_up_view.dart';
 import 'package:get/get.dart';
+
+import 'login_controller.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -30,130 +32,128 @@ class _LoginViewState extends State<LoginView> {
     return Scaffold(
         body: Form(
       key: _formKey,
-      child: ListView(children: [
-        Center(
-          child: Text('تسجيل الدخول'),
-        ),
-        Center(child: SvgPicture.asset('assets/images/Login.svg')),
-        CustomText(
-          text: 'اسم المستخدم',
-          textColor: AppColors.mainpurple1,
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CustomTextField(
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'أدخل حقل رمز الدخول';
-                }
-                if (!StringUtil.isPassword(value)) {
-                  return 'تأكد ان رمز الدخول صحيح';
-                }
-                return null;
-              },
-              hinttext: 'اسم المستخدم',
-              iconName: 'ic_user.svg',
-              mheight: 84,
-              mwidth: 100,
-              controller: nameControler),
-        ),
-        CustomText(
-          text: 'رمز الدخول ',
-          textColor: AppColors.mainpurple1,
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CustomTextField(
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'أدخل حقل رمز الدخول';
-                }
-                if (!StringUtil.isPassword(value)) {
-                  return 'تأكد ان رمز الدخول صحيح';
-                }
-                return null;
-              },
-              hinttext: 'رمز الدخول',
-              iconName: 'ic_key.svg',
-              mheight: 84,
-              mwidth: 100,
-              controller: passwordControler),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CustomButton(
-              backgroundColor: AppColors.mainpurple1,
-              text: "تسجيل الدخول",
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {}
-              }),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 40),
-          child: Row(
-            children: [
-              InkWell(
-                onTap: () {},
-                child: CustomText(
-                  text: "أنشئ حسابك الان",
-                  textColor: AppColors.mainpurple1,
+      child: Padding(
+        padding: EdgeInsetsDirectional.all(screenWidth(25)),
+        child: SafeArea(
+          child: Column(children: [
+            (screenWidth(10)).ph,
+            Center(
+              child: Text(
+                tr("key_login"),
+                style: TextStyle(
+                  height: 1.2,
+                  decoration: TextDecoration.none,
+                  color: AppColors.hinttext,
+                  fontSize: screenWidth(15),
+                  fontWeight: FontWeight.normal,
                 ),
               ),
-              CustomText(
-                text: 'ليس لديك حساب؟',
-                textColor: AppColors.hinttext,
+            ),
+            (screenWidth(25)).ph,
+            Center(child: SvgPicture.asset('assets/images/Login.svg')),
+            (screenWidth(25)).ph,
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                tr("key_user_name"),
+                style: TextStyle(
+                  height: 1.2,
+                  decoration: TextDecoration.none,
+                  color: AppColors.mainpurple2,
+                  fontSize: screenWidth(15),
+                  fontWeight: FontWeight.normal,
+                ),
               ),
-            ],
-          ),
-        )
-      ]),
-    )
-
-        // CustomTextFormField(
-        //     hintText: 'enter your name',
-        //     controller: nameControler,
-        //     fillColor: Colors.cyanAccent,
-        //     hintTextColor: Colors.grey),
-        // SizedBox(height: 20,),
-        // CustomTextFormField(
-        //     hintText: 'enter your name',
-        //     controller: emailControler,
-        //     fillColor: AppColors.hinttext  ,
-        //     hintTextColor: Colors.grey),
-        // SizedBox(height: 20,),
-        // CustomButton(
-        //     text: 'Login',
-        //     onPressed: () {
-        //       UserRepository()
-        //           .Login(
-        //               email: emailControler.text,
-        //               password: nameControler.text)
-        //           .then((value) {
-        //         value.fold((l) {
-        //           CustomToast.showMessage(message: l);
-        //         }, (r) {
-        //
-        //          print("hello missie =======${r}");
-        //           SharedPrefrenceRepostory().setTokenInfo(r);
-        //         });
-        //       });
-        //       // UserRepositoriey()
-        //       //     .login(
-        //       //     email: emailController.text,
-        //       //     password: passwordController.text)
-        //       //     .then((value) {
-        //       //   value.fold((l) {
-        //       //     CustomShowToast.showMessage(
-        //       //         messageType: MessageType.REJECTED,
-        //       //         size: size,
-        //       //         message: l);
-        //       //   }, (r) {
-        //       //     SharedPreferenceRepositories.setTokenIno(r);
-        //       //     Get.off(MainView());
-        //       //   });
-        //       // })
-        //     })
-
-        );
+            ),
+            (screenWidth(25)).ph,
+            CustomTextField(
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return tr("key_enter _your_key");
+                  }
+                  if (!StringUtil.isPassword(value)) {
+                    return tr("key_ confirm_enter _your_key");
+                  }
+                  return null;
+                },
+                hinttext: 'اسم المستخدم',
+                iconName: 'ic_user.svg',
+                mheight: screenHieght(12),
+                mwidth: screenWidth(1.1),
+                controller: nameControler),
+            (screenWidth(25)).ph,
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                tr("key_key"),
+                style: TextStyle(
+                  height: 1.2,
+                  decoration: TextDecoration.none,
+                  color: AppColors.mainpurple2,
+                  fontSize: screenWidth(15),
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            ),
+            (screenWidth(25)).ph,
+            CustomTextField(
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return tr("key_enter _your_key");
+                  }
+                  if (!StringUtil.isPassword(value)) {
+                    return tr("key_ confirm_enter _your_key");
+                  }
+                  return null;
+                },
+                hinttext: tr("key_key"),
+                iconName: 'ic_key.svg',
+                mheight: screenHieght(12),
+                mwidth: screenWidth(1.1),
+                controller: passwordControler),
+            (screenWidth(25)).ph,
+            CustomButton(
+                backgroundColor: AppColors.mainpurple1,
+                text: tr("key_login"),
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {}
+                  Get.to(const SignupView());
+                }),
+            (screenWidth(25)).ph,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: CustomText(
+                    text: tr("key_account"),
+                    textColor: AppColors.hinttext,
+                  ),
+                ),
+                CustomText(
+                  text: tr("key_create_account"),
+                  textColor: AppColors.mainpurple1,
+                ),
+              ],
+            ),
+            (screenWidth(2.5)).ph,
+            InkWell(
+              onTap: () {
+                Get.to(MainView());
+              },
+              child: Text(
+                tr("key_visit"),
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  color: AppColors.hinttext,
+                  fontSize: screenWidth(28),
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            )
+          ]),
+        ),
+      ),
+    ));
   }
 }

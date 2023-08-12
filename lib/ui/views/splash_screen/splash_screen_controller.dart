@@ -1,5 +1,6 @@
 import 'package:flutter_templete/core/enums/message_type.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_toast.dart';
+import 'package:flutter_templete/ui/views/login_view/loginview.dart';
 
 import 'package:get/get.dart';
 
@@ -24,6 +25,12 @@ class SplashSceenController extends GetxController {
     //         message: "Your Sub expired", messageType: MessageType.WARNING);
     //   }
     // });
-    super.onInit();
+    Future.delayed(Duration(seconds: 4)).then((value) async {
+      {
+        Get.off(LoginView());
+      }
+
+      super.onInit();
+    });
   }
 }
