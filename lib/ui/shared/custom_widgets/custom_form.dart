@@ -5,16 +5,17 @@ import 'package:flutter_templete/ui/shared/utils.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
-      {super.key,
+      {required this.controller,
       this.hinttext,
       required this.mheight,
       required this.mwidth,
       this.fontsize,
       this.bradius,
-      required this.controller,
+      this.iconName,
       this.errorText,
       this.validator,
-      this.iconName});
+      this.backgroundColor,
+      this.suffixiconName});
 
   final String? Function(String?)? validator;
   final String? hinttext;
@@ -25,15 +26,30 @@ class CustomTextField extends StatelessWidget {
   final double? bradius;
   final String? errorText;
   final String? iconName;
+  final String? suffixiconName;
+
+  final Color? backgroundColor;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+
       textAlign: TextAlign.right,
       textDirection: TextDirection.rtl,
       textInputAction: TextInputAction.next,
       validator: validator,
       controller: controller,
       decoration: InputDecoration(
+// update by ahmad *****
+        suffixIcon: UnconstrainedBox(
+          child: SvgPicture.asset(
+            'assets/images/${suffixiconName}',
+            width: screenWidth(20),
+            color: AppColors.mainpurple1withopa,
+            // fit: BoxFit.fill,
+          ),
+        ),
+
         prefixIcon: UnconstrainedBox(
           child: SvgPicture.asset(
             'assets/images/${iconName}',
