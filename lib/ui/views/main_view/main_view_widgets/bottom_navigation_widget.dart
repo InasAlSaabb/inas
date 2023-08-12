@@ -22,11 +22,6 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
       alignment: Alignment.bottomCenter,
       children: [
         Container(
-          width: screenWidth(1),
-          height: screenHieght(10),
-          decoration: BoxDecoration(
-              color: AppColors.mainWhiteColor,
-              borderRadius: BorderRadius.circular(9)),
         ),
         Positioned(
           bottom: screenWidth(12),
