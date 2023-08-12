@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_templete/core/enums/bottom_Navigation.dart';
-import 'package:flutter_templete/ui/views/home_view/home_view.dart';
+import 'package:flutter_templete/ui/views/main_view/home_view/home_view.dart';
 import 'package:flutter_templete/ui/views/main_view/main_view_widgets/bottom_navigation_widget.dart';
 import 'package:get/get.dart';
 
