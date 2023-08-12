@@ -1,6 +1,8 @@
 import 'package:flutter_templete/core/enums/message_type.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_toast.dart';
+import 'package:flutter_templete/ui/views/main_view/home_view/home_view.dart';
 import 'package:flutter_templete/ui/views/login_view/loginview.dart';
+import 'package:flutter_templete/ui/views/main_view/main_view.dart';
 
 import 'package:get/get.dart';
 
@@ -27,7 +29,7 @@ class SplashSceenController extends GetxController {
     // });
     Future.delayed(Duration(seconds: 4)).then((value) async {
       {
-        Get.off(LoginView());
+        Get.off(MainView());
       }
 
       super.onInit();

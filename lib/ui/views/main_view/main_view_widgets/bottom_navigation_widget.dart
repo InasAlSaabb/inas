@@ -21,7 +21,15 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        Container(
+        InkWell(
+          onTap: () {
+            widget.ontap(BottomNavigationEnum.HOME, 3);
+          },
+          child: Container(
+            width: screenWidth(1),
+            height: screenHieght(10),
+            color: AppColors.mainWhiteColor,
+          ),
         ),
         Positioned(
           bottom: screenWidth(12),
@@ -35,28 +43,17 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
               ),
               navItem(
                   ontap: () {
-                    widget.ontap(BottomNavigationEnum.NOTIFICATION, 0);
+                    widget.ontap(BottomNavigationEnum.PROFILE, 0);
                   },
                   size: size,
-                  imagename: 'ic_notification',
-                  isslected:
-                      widget.navitm == BottomNavigationEnum.NOTIFICATION),
+                  imagename: 'ic_profile',
+                  isslected: widget.navitm == BottomNavigationEnum.PROFILE),
               SizedBox(
                 width: screenWidth(7),
               ),
               navItem(
                   ontap: () {
-                    widget.ontap(BottomNavigationEnum.HOME, 1);
-                  },
-                  size: size,
-                  imagename: 'ic_home',
-                  isslected: widget.navitm == BottomNavigationEnum.HOME),
-              SizedBox(
-                width: screenWidth(7),
-              ),
-              navItem(
-                  ontap: () {
-                    widget.ontap(BottomNavigationEnum.FAVORATE, 3);
+                    widget.ontap(BottomNavigationEnum.FAVORATE, 1);
                   },
                   size: size,
                   imagename: 'ic_star',
@@ -66,11 +63,21 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
               ),
               navItem(
                   ontap: () {
-                    widget.ontap(BottomNavigationEnum.PROFILE, 4);
+                    widget.ontap(BottomNavigationEnum.HOME, 3);
                   },
                   size: size,
-                  imagename: 'ic_profile',
-                  isslected: widget.navitm == BottomNavigationEnum.PROFILE)
+                  imagename: 'ic_home',
+                  isslected: widget.navitm == BottomNavigationEnum.HOME),
+              SizedBox(
+                width: screenWidth(7),
+              ),
+              navItem(
+                  ontap: () {
+                    widget.ontap(BottomNavigationEnum.NOTIFICATION, 4);
+                  },
+                  size: size,
+                  imagename: 'ic_notification',
+                  isslected: widget.navitm == BottomNavigationEnum.NOTIFICATION)
             ]),
           ),
         ),
