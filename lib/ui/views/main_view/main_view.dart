@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_templete/core/enums/bottom_Navigation.dart';
 import 'package:flutter_templete/ui/views/home_view/home_view.dart';
 import 'package:flutter_templete/ui/views/main_view/main_view_widgets/bottom_navigation_widget.dart';
+import 'package:flutter_templete/ui/views/main_view/profile_view/profile_view.dart';
 import 'package:get/get.dart';
 
 class MainView extends StatefulWidget {
@@ -18,24 +19,24 @@ class _MainViewState extends State<MainView> {
   //maincontroller controller = Get.put(maincontroller());
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       key: key,
       bottomNavigationBar: BottomNavigationWidget(
-        navitm: selected,
-        ontap: (select, pagenumber) {
-          controller.jumpToPage(pagenumber);
+    navitm: selected,
+    ontap: (select, pagenumber) {
+      controller.jumpToPage(pagenumber);
 
-          setState(() {
-            selected = select;
-          });
-        },
+      setState(() {
+        selected = select;
+      });
+    },
       ),
       body: PageView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: controller,
-        children: [HomeView()],
+    physics: NeverScrollableScrollPhysics(),
+    controller: controller,
+    children: [HomeView(),
+      ProfileView()],
       ),
-    ));
+    );
   }
 }
