@@ -21,17 +21,17 @@ class _HomeViewState extends State<HomeView> {
         children: [
           Stack(
             children: [
-              SvgPicture.asset("assets/images/shapeMaker.svg"),
-              Row(
-                children: [
-                  Icon(Icons.home),
-                  screenWidth(5).ph,
-                  Text(
-                    "الرئيسية",
-                    style: TextStyle(color: AppColors.mainWhiteColor),
-                  )
-                ],
-              )
+              //SvgPicture.asset("assets/images/shapeMaker.svg"),
+              // Row(
+              //   children: [
+              //     Icon(Icons.home),
+              //     screenWidth(5).ph,
+              //     Text(
+              //       "الرئيسية",
+              //       style: TextStyle(color: AppColors.mainWhiteColor),
+              //     )
+              //   ],
+              // )
             ],
           ),
           //CustomTextFormField(controller:controllerSearch , , fillColor: null, hintText: '', hintTextColor: null,)
