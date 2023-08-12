@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
+import 'package:flutter_templete/ui/shared/custom_widgets/custom_text.dart';
 import 'package:flutter_templete/ui/views/home_view/home_view_controller.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
@@ -44,14 +45,12 @@ class _HomeViewState extends State<HomeView> {
             ],
           ),
           screenWidth(30).ph,
-          // CustomTextField(
-          //   mheight: screenHieght(1),
-          //   mwidth: screenWidth(1),
-          //   controller: controllerSearch,
-          //   hinttext: "بحث",
-
-          // ),
-
+          CustomTextField(
+            mheight: screenHieght(1),
+            mwidth: screenWidth(1),
+            controller: controllerSearch,
+            hinttext: "بحث",
+          ),
           SvgPicture.asset(
               'assets/images/intro${controller.currentIndex.value}.svg'),
           30.ph,
@@ -65,6 +64,60 @@ class _HomeViewState extends State<HomeView> {
                 color: AppColors.mainWhiteColor,
                 activeColor: AppColors.mainpurple1,
               )),
+          Row(
+            children: [
+              Container(
+                height: screenHieght(1),
+                width: screenWidth(20),
+                color: AppColors.mainback,
+              ),
+              CustomText(
+                text: "التصنيفات",
+                textColor: AppColors.mainback,
+              )
+            ],
+          ),
+          Obx(() {
+            return SizedBox(
+                height: 50,
+                child:
+                    // controller.categoryList.isEmpty? Text("no Category"):
+                    ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        // itemCount: controller.categoryList.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  InkWell(
+                                    onTap: () {},
+                                    child: CustomText(text: ""),
+                                  )
+                                ]),
+                          );
+                        }));
+          }),
+          Obx(() {
+            return SizedBox(
+                height: 50,
+                child:
+                    // controller.categoryList.isEmpty? Text("no Category"):
+                    ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        // itemCount: controller.categoryList.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Column(children: [
+                            Image.asset(""),
+                            screenWidth(10).ph,
+                            CustomText(text: "")
+                          ]);
+                        }));
+          }),
         ],
       ),
     );
