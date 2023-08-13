@@ -39,45 +39,42 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-        width: width ?? screenWidth(1.1),
-        height: height ?? screenHieght(15),
-        child: ElevatedButton(
-          onPressed: () {
-            if (onPressed != null) onPressed!();
-          },
-          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            if (imageName != null) ...[
-              SvgPicture.asset(
-                'assets/images/$imageName.svg',
-                color: imageColor,
-                width: imageWidth,
-                height: imageHeight,
-              ),
-              (screenWidth(20)).pw,
-            ],
-            CustomText(
-              text: text ?? "",
-              textColor: textColor,
-              fontSize: fontSize ?? screenWidth(25),
-              //textAlign: TextAlign.start,
-            ),
-          ]),
-          style: ElevatedButton.styleFrom(
-            side: borderColor != null
-                ? BorderSide(
-                    width: 1.0,
-                    color: borderColor!,
-                  )
-                : null,
-            backgroundColor: backgroundColor ?? AppColors.mainOrangeColor,
-            // shape: StadiumBorder(),
-            fixedSize: Size(
-              screenWidth(1.1),
-              screenHieght(18),
-              // size.height * 0.08,
-            ),
+    return ElevatedButton(
+      onPressed: () {
+        if (onPressed != null) onPressed!();
+      },
+      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        if (imageName != null) ...[
+          SvgPicture.asset(
+            'assets/images/$imageName.svg',
+            color: imageColor,
+            width: imageWidth,
+            height: imageHeight,
           ),
-        ));
+          (screenWidth(20)).pw,
+        ],
+        CustomText(
+          text: text ?? "",
+          textColor: textColor,
+          fontSize: fontSize ?? screenWidth(25),
+          //textAlign: TextAlign.start,
+        ),
+      ]),
+      style: ElevatedButton.styleFrom(
+        side: borderColor != null
+            ? BorderSide(
+                width: 1.0,
+                color: borderColor!,
+              )
+            : null,
+        backgroundColor: backgroundColor ?? AppColors.mainpurple1,
+        // shape: StadiumBorder(),
+        fixedSize: Size(
+          width ?? screenWidth(1.1),
+          height ?? screenHieght(18),
+          // size.height * 0.08,
+        ),
+      ),
+    );
   }
 }

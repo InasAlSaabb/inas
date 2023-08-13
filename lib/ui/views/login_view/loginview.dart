@@ -123,35 +123,31 @@ class _LoginViewState extends State<LoginView> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomText(
-                  text: tr("key_account"),
-                  textColor: AppColors.hinttext,
-                ),
                 InkWell(
-                  onTap: () {
-                    Get.to(SignupView());
-                  },
+                  onTap: () {},
                   child: CustomText(
-                    text: tr("key_create_account"),
-                    textColor: AppColors.mainpurple1,
+                    text: tr("key_account"),
+                    textColor: AppColors.hinttext,
                   ),
+                ),
+                CustomText(
+                  text: tr("key_create_account"),
+                  textColor: AppColors.mainpurple1,
                 ),
               ],
             ),
-            (screenWidth(5)).ph,
+            (screenWidth(2.5)).ph,
             InkWell(
               onTap: () {
                 Get.to(MainView());
               },
-              child: Center(
-                child: Text(
-                  tr("key_visit"),
-                  style: TextStyle(
-                    decoration: TextDecoration.underline,
-                    color: AppColors.hinttext,
-                    fontSize: screenWidth(28),
-                    fontWeight: FontWeight.normal,
-                  ),
+              child: Text(
+                tr("key_visit"),
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  color: AppColors.hinttext,
+                  fontSize: screenWidth(28),
+                  fontWeight: FontWeight.normal,
                 ),
               ),
             )
