@@ -23,7 +23,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
       children: [
         InkWell(
           onTap: () {
-            widget.ontap(BottomNavigationEnum.HOME, 3);
+            widget.ontap(BottomNavigationEnum.HOME, 2);
           },
           child: Container(
             width: screenWidth(1),
@@ -37,49 +37,52 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           right: screenWidth(20),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: screenWidth(40)),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-              SizedBox(
-                width: screenWidth(25),
-              ),
-              navItem(
-                  ontap: () {
-                    widget.ontap(BottomNavigationEnum.PROFILE, 0);
-                  },
-                  size: size,
-                  imagename: 'ic_profile',
-                  isslected: widget.navitm == BottomNavigationEnum.PROFILE),
-              SizedBox(
-                width: screenWidth(7),
-              ),
-              navItem(
-                  ontap: () {
-                    widget.ontap(BottomNavigationEnum.FAVORATE, 1);
-                  },
-                  size: size,
-                  imagename: 'ic_star',
-                  isslected: widget.navitm == BottomNavigationEnum.FAVORATE),
-              SizedBox(
-                width: screenWidth(7),
-              ),
-              navItem(
-                  ontap: () {
-                    widget.ontap(BottomNavigationEnum.HOME, 3);
-                  },
-                  size: size,
-                  imagename: 'ic_home',
-                  isslected: widget.navitm == BottomNavigationEnum.HOME),
-              SizedBox(
-                width: screenWidth(7),
-              ),
-              navItem(
-                  ontap: () {
-                    widget.ontap(BottomNavigationEnum.NOTIFICATION, 4);
-                  },
-                  size: size,
-                  imagename: 'ic_notification',
-                  isslected: widget.navitm == BottomNavigationEnum.NOTIFICATION)
-            ]),
+                  SizedBox(
+                    width: screenWidth(25),
+                  ),
+                  navItem(
+                      ontap: () {
+                        widget.ontap(BottomNavigationEnum.PROFILE, 0);
+                      },
+                      size: size,
+                      imagename: 'ic_profile',
+                      isslected: widget.navitm == BottomNavigationEnum.PROFILE),
+                  SizedBox(
+                    width: screenWidth(7),
+                  ),
+                  navItem(
+                      ontap: () {
+                        widget.ontap(BottomNavigationEnum.FAVORATE, 1);
+                      },
+                      size: size,
+                      imagename: 'ic_star',
+                      isslected:
+                          widget.navitm == BottomNavigationEnum.FAVORATE),
+                  SizedBox(
+                    width: screenWidth(7),
+                  ),
+                  navItem(
+                      ontap: () {
+                        widget.ontap(BottomNavigationEnum.HOME, 2);
+                      },
+                      size: size,
+                      imagename: 'ic_home',
+                      isslected: widget.navitm == BottomNavigationEnum.HOME),
+                  SizedBox(
+                    width: screenWidth(7),
+                  ),
+                  navItem(
+                      ontap: () {
+                        widget.ontap(BottomNavigationEnum.NOTIFICATION, 3);
+                      },
+                      size: size,
+                      imagename: 'ic_notification',
+                      isslected:
+                          widget.navitm == BottomNavigationEnum.NOTIFICATION)
+                ]),
           ),
         ),
       ],

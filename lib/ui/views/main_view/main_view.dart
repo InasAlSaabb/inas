@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_templete/core/enums/bottom_Navigation.dart';
 import 'package:flutter_templete/ui/views/main_view/home_view/home_view.dart';
 import 'package:flutter_templete/ui/views/main_view/main_view_widgets/bottom_navigation_widget.dart';
+import 'package:flutter_templete/ui/views/main_view/notification_view/notification_view.dart';
 import 'package:flutter_templete/ui/views/main_view/profile_view/profile_view.dart';
-import 'package:get/get.dart';
+import 'package:flutter_templete/ui/views/main_view/star_view/star_view.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -13,7 +14,7 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
-  PageController controller = PageController(initialPage: 3);
+  PageController controller = PageController(initialPage: 2);
   BottomNavigationEnum selected = BottomNavigationEnum.HOME;
   GlobalKey<ScaffoldState> key = GlobalKey<ScaffoldState>();
   //maincontroller controller = Get.put(maincontroller());
@@ -22,20 +23,19 @@ class _MainViewState extends State<MainView> {
     return Scaffold(
       key: key,
       bottomNavigationBar: BottomNavigationWidget(
-    navitm: selected,
-    ontap: (select, pagenumber) {
-      controller.jumpToPage(pagenumber);
+        navitm: selected,
+        ontap: (select, pagenumber) {
+          controller.jumpToPage(pagenumber);
 
-      setState(() {
-        selected = select;
-      });
-    },
+          setState(() {
+            selected = select;
+          });
+        },
       ),
       body: PageView(
-    physics: NeverScrollableScrollPhysics(),
-    controller: controller,
-    children: [HomeView(),
-      ProfileView()],
+        physics: NeverScrollableScrollPhysics(),
+        controller: controller,
+        children: [ProfileView(), StarView(), HomeView(), NotificationView()],
       ),
     );
   }
