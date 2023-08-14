@@ -4,8 +4,9 @@ import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
 
 class CustomTurn extends StatefulWidget {
-  const CustomTurn({super.key, required this.text});
+  const CustomTurn({super.key, required this.text, this.backgroundcolor});
   final String text;
+  final Color? backgroundcolor;
   @override
   State<CustomTurn> createState() => _CustomTurnState();
 }
@@ -13,13 +14,28 @@ class CustomTurn extends StatefulWidget {
 class _CustomTurnState extends State<CustomTurn> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SvgPicture.asset("assets/images/.svg"),
-        Text("${widget.text}"),
-        screenWidth(10).ph,
-        SvgPicture.asset("assets/images/ic_arrow.svg")
-      ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: screenWidth(15)),
+      child: Container(
+        width: screenWidth(1),
+        height: screenHieght(17),
+        decoration: BoxDecoration(
+            color: widget.backgroundcolor,
+            borderRadius: BorderRadius.circular(5)),
+        child: Row(
+          children: [
+            SvgPicture.asset(
+              "assets/images/ic_book.svg",
+              width: screenWidth(10),
+            ),
+            Text("${widget.text}"),
+            screenWidth(10).pw,
+            SvgPicture.asset(
+              "assets/images/ic_arrow.svg",
+            )
+          ],
+        ),
+      ),
     );
   }
 }

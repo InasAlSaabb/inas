@@ -37,9 +37,10 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           right: screenWidth(20),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: screenWidth(40)),
-            child: Row(children: [
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
               SizedBox(
-                width: screenWidth(9),
+                width: screenWidth(25),
               ),
               navItem(
                   ontap: () {
