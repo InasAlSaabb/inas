@@ -112,20 +112,39 @@ class _SignupViewState extends State<SignupView> {
               ),
             ),
             (screenWidth(50)).ph,
-            Row(
-              children: <Widget>[
-                buildCustomRadioButton(1, 'key_medicine'),
-                buildCustomRadioButton(2, 'key_dentist'),
-                buildCustomRadioButton(3, 'key_faculty_of_pharmac'),
-              ],
+            GridView.builder(
+              shrinkWrap: true,
+              itemCount: controller.special.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Row(
+                  children: <Widget>[
+                    buildCustomRadioButton(controller.special[index].id!,
+                        controller.special[index].name!),
+                    // buildCustomRadioButton(2, 'key_dentist'),
+                    // buildCustomRadioButton(3, 'key_faculty_of_pharmac'),
+                  ],
+                );
+              },
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 1,
+                  mainAxisExtent: screenWidth(8),
+                  mainAxisSpacing: 1),
             ),
-            Row(
-              children: <Widget>[
-                buildCustomRadioButton(4, 'key_it'),
-                buildCustomRadioButton(5, 'key_arch'),
-                buildCustomRadioButton(6, 'key_nurs'),
-              ],
-            ),
+            // Row(
+            //   children: <Widget>[
+            //     buildCustomRadioButton(1, 'key_medicine'),
+            //     buildCustomRadioButton(2, 'key_dentist'),
+            //     buildCustomRadioButton(3, 'key_faculty_of_pharmac'),
+            //   ],
+            // ),
+            // Row(
+            //   children: <Widget>[
+            //     buildCustomRadioButton(4, 'key_it'),
+            //     buildCustomRadioButton(5, 'key_arch'),
+            //     buildCustomRadioButton(6, 'key_nurs'),
+            //   ],
+            // ),
             (screenWidth(10)).ph,
             CustomButton(
               onPressed: () {
