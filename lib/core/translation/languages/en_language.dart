@@ -18,6 +18,21 @@ class ENLanguage {
         "key_faculty_of_pharmac": "Faculty of Pharmacy",
         "key_dentist": "Dentistry",
         "key_medicine": "Medicine",
-        "key-overlay": "Please sign up to complete the browsing process"
+        "key-overlay": "Please sign up to complete the browsing process",
+        "key_cong": "Congratulations, you have successfully completed the test",
+        "key_degree": "Your sign is:",
+        "key_correct": "The number of correct questions:",
+        "key_wrong": "The number of wrong questions:",
+        "key_check": "Check answers",
+        "Key_send": "send",
+        "Key_sendfeed": "Submit a suggestion/complaint",
+        "key_logout": "Logout",
+        "key_personal_info": "personal information",
+        "key_about_app": "About the application",
+        "key_send_feed": "Submit complaints",
+        "key_phone": "phone number",
+        "key_save_change": "save changes",
+        "key_retreate": "to retreat",
+        "key_edit": "Modify personal information"
       };
 }
