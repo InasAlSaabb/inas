@@ -5,7 +5,6 @@ import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_shape.dart';
 import 'package:get/get.dart';
 import '../../shared/colors.dart';
-import '../../shared/custom_widgets/custom_paint_for_home.dart';
 import '../../shared/utils.dart';
 import '../main_view/profile_view/profile_view.dart';
 

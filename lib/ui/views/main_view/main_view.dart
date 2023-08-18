@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
-import 'package:flutter_templete/ui/shared/custom_widgets/custom_paint_for_home.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_shape.dart';
 import 'package:flutter_templete/ui/views/home_view/home_view.dart';
 
