@@ -6,11 +6,7 @@ import '../utils.dart';
 
 class CustomPaintHome extends StatelessWidget {
   CustomPaintHome(
-      {required this.svgName,
-      required this.lable,
-      required this.svgWidth,
-      required this.svgHieght,
-      this.svgColor});
+      {this.svgName, this.lable, this.svgWidth, this.svgHieght, this.svgColor});
 
   final String? svgName;
 
