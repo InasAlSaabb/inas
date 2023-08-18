@@ -5,7 +5,7 @@ import 'package:flutter_templete/ui/shared/utils.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
-      {required this.controller,
+      {this.controller,
       this.hinttext,
       required this.mheight,
       required this.mwidth,
@@ -15,25 +15,40 @@ class CustomTextField extends StatelessWidget {
       this.errorText,
       this.validator,
       this.backgroundColor,
-      this.suffixiconName});
+      this.suffixiconName,
+      this.max,
+      this.suffixIconColor,
+      this.prefixIconColor,
+      this.fill,
+      this.iconcolor,
+      this.preficoncolor,
+      this.hintcolor});
 
   final String? Function(String?)? validator;
   final String? hinttext;
   final double mheight;
   final double mwidth;
+  final int? max;
+  final Color? suffixIconColor;
+
   final double? fontsize;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final double? bradius;
   final String? errorText;
   final String? iconName;
+  final Color? fill;
   final String? suffixiconName;
+  final Color? iconcolor;
+  final Color? prefixIconColor;
+  final Color? preficoncolor;
+  final Color? hintcolor;
 
   final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-
+      maxLines: max ?? 1,
       textAlign: TextAlign.right,
       textDirection: TextDirection.rtl,
       textInputAction: TextInputAction.next,
@@ -42,29 +57,30 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
 // update by ahmad *****
         suffixIcon: UnconstrainedBox(
-          child: SvgPicture.asset(
-            'assets/images/${suffixiconName}',
-            width: screenWidth(20),
-            color: AppColors.mainpurple1withopa,
-            // fit: BoxFit.fill,
-          ),
+          child: SvgPicture.asset('assets/images/${suffixiconName}',
+              width: screenWidth(20),
+              color: iconcolor ?? AppColors.mainpurple1withopa
+              // fit: BoxFit.fill,
+              ),
         ),
+        suffixIconColor: suffixIconColor,
 
         prefixIcon: UnconstrainedBox(
           child: SvgPicture.asset(
             'assets/images/${iconName}',
             width: screenWidth(20),
-            color: AppColors.mainpurple1withopa,
+            color: preficoncolor ?? AppColors.mainpurple1withopa,
             // fit: BoxFit.fill,
           ),
         ),
+        prefixIconColor: prefixIconColor,
         filled: true,
-        fillColor: AppColors.mainskycolor2,
+        fillColor: fill ?? AppColors.mainskycolor2,
         constraints: BoxConstraints(maxWidth: mwidth, maxHeight: mheight),
         contentPadding: const EdgeInsets.all(2),
         hintText: hinttext,
         hintStyle: TextStyle(
-          color: AppColors.mainpurple1withopa,
+          color: hintcolor ?? AppColors.mainpurple1withopa,
           fontSize: screenWidth(22),
         ),
         enabledBorder: OutlineInputBorder(
