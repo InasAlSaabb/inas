@@ -119,7 +119,7 @@ class _UpdateDetailesState extends State<UpdateDetailes> {
           (screenWidth(15)).ph,
           InkWell(
             onTap: () {
-              Get.to(ProfileView());
+              Get.back();
             },
             child: Text(
               tr("key_retreate"),
