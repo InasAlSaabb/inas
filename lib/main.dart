@@ -1,23 +1,16 @@
-import 'dart:io';
-
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_templete/app/my_app.dart';
-import 'package:flutter_templete/app/my_app_controller.dart';
 import 'package:flutter_templete/core/data/reposotories/shared_prefernces.dart';
 import 'package:flutter_templete/core/services/cart_services.dart';
 import 'package:flutter_templete/core/services/connectivity_service.dart';
-import 'package:flutter_templete/core/services/location_service.dart';
-import 'package:flutter_templete/core/services/notification_service.dart';
-
 import 'package:get/get.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
-  SharedPreferences ?globalSharedPreference;
+
+SharedPreferences? globalSharedPreference;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-globalSharedPreference=await SharedPreferences.getInstance();
+  globalSharedPreference = await SharedPreferences.getInstance();
   await Get.putAsync<SharedPreferences>(() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs;

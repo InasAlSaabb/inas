@@ -1,7 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/views/home_view/home_view_controller.dart';
 import 'package:get/get.dart';
 
