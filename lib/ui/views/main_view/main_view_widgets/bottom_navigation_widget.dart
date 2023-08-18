@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_templete/core/enums/bottom_Navigation.dart';
+import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
+import 'package:flutter_templete/ui/shared/custom_widgets/custom_text.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
 
 class BottomNavigationWidget extends StatefulWidget {
-  final BottomNavigationEnum navitm;
-  final Function(BottomNavigationEnum, int) ontap;
-  const BottomNavigationWidget(
-      {super.key, required this.navitm, required this.ontap});
+  const BottomNavigationWidget({
+    super.key,
+    required this.bottomNavigationEnum,
+    required this.onTap,
+  });
+
+  final BottomNavigationEnum bottomNavigationEnum;
+  final Function(BottomNavigationEnum, int) onTap;
 
   @override
   State<BottomNavigationWidget> createState() => _BottomNavigationWidgetState();
@@ -17,146 +23,145 @@ class BottomNavigationWidget extends StatefulWidget {
 class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
         Container(
           width: screenWidth(1),
-          height: screenHieght(10),
+          height: screenWidth(6.2),
+          alignment: Alignment.bottomCenter,
           decoration: BoxDecoration(
-              color: AppColors.mainWhiteColor,
-              borderRadius: BorderRadius.circular(9)),
+            color: AppColors.mainWhiteColor,
+            border: Border.all(
+              color: AppColors.mainpurple1,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.mainpurple1withopa,
+                blurRadius: 6,
+                offset: Offset(0, 3),
+              ),
+            ],
+          ),
         ),
-        Positioned(
-          bottom: screenWidth(12),
-          left: screenWidth(20),
-          right: screenWidth(20),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: screenWidth(40)),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        PositionedDirectional(
+          bottom: 0,
+          start: 0,
+          end: 0,
+          child: Container(
+            height: screenWidth(6),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: screenWidth(39),
+                horizontal: screenWidth(28),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-              SizedBox(
-                width: screenWidth(25),
+                  NavItem(
+                    imageName: 'ic_profile',
+                    isSelected: widget.bottomNavigationEnum ==
+                        BottomNavigationEnum.PROFILE,
+                    onTap: () {
+                      widget.onTap(BottomNavigationEnum.PROFILE, 0);
+                    },
+                  ),
+                  NavItem(
+                    imageName: 'ic_star',
+                    isSelected: widget.bottomNavigationEnum ==
+                        BottomNavigationEnum.IMPORTANTQUESTIONS,
+                    onTap: () {
+                      widget.onTap(BottomNavigationEnum.IMPORTANTQUESTIONS, 1);
+                    },
+                  ),
+                  NavItem(
+                    imageName: 'ic_home',
+                    isSelected: widget.bottomNavigationEnum ==
+                        BottomNavigationEnum.HOME,
+                    onTap: () {
+                      widget.onTap(BottomNavigationEnum.HOME, 2);
+                    },
+                  ),
+                  NavItem(
+                    imageName: 'ic_notification',
+                    isSelected: widget.bottomNavigationEnum ==
+                        BottomNavigationEnum.NOTIFICATIONS,
+                    onTap: () {
+                      widget.onTap(BottomNavigationEnum.NOTIFICATIONS, 3);
+                    },
+                  ),
+                ],
               ),
-              navItem(
-                  ontap: () {
-                    widget.ontap(BottomNavigationEnum.NOTIFICATION, 0);
-                  },
-                  size: size,
-                  imagename: 'ic_notification',
-                  isslected:
-                      widget.navitm == BottomNavigationEnum.NOTIFICATION),
-              SizedBox(
-                width: screenWidth(7),
-              ),
-              navItem(
-                  ontap: () {
-                    widget.ontap(BottomNavigationEnum.HOME, 1);
-                  },
-                  size: size,
-                  imagename: 'ic_home',
-                  isslected: widget.navitm == BottomNavigationEnum.HOME),
-              SizedBox(
-                width: screenWidth(7),
-              ),
-              navItem(
-                  ontap: () {
-                    widget.ontap(BottomNavigationEnum.FAVORATE, 3);
-                  },
-                  size: size,
-                  imagename: 'ic_star',
-                  isslected: widget.navitm == BottomNavigationEnum.FAVORATE),
-              SizedBox(
-                width: screenWidth(7),
-              ),
-              navItem(
-                  ontap: () {
-                    widget.ontap(BottomNavigationEnum.PROFILE, 4);
-                  },
-                  size: size,
-                  imagename: 'ic_profile',
-                  isslected: widget.navitm == BottomNavigationEnum.PROFILE)
-            ]),
+            ),
           ),
         ),
       ],
     );
   }
+}
 
-  Widget navItem(
-      {required Size size,
-      required String imagename,
-      required bool isslected,
-      required Function ontap}) {
+class NavItem extends StatefulWidget {
+  const NavItem({
+    super.key,
+    this.count,
+    this.text,
+    required this.imageName,
+    required this.isSelected,
+    required this.onTap,
+  });
+  final int? count;
+  final String? text;
+  final String? imageName;
+  final bool? isSelected;
+  final Function? onTap;
+
+  @override
+  State<NavItem> createState() => _NavItemState();
+}
+
+class _NavItemState extends State<NavItem> {
+  @override
+  Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        ontap();
+        widget.onTap!();
       },
-      child: Column(
-        children: [
-          SvgPicture.asset(
-            'assets/images/$imagename.svg',
-            color: isslected ? AppColors.mainpurple1 : AppColors.mainpurple3,
-            width: screenWidth(20),
-          ),
-          SizedBox(
-            height: screenWidth(40),
-          ),
-          Visibility(
-              visible: isslected,
-              child: Container(
-                color: AppColors.mainpurple1,
-                width: screenWidth(10),
-                height: screenHieght(300),
-              ))
-        ],
+      child: Container(
+        alignment: AlignmentDirectional.center,
+        width: screenWidth(5),
+        height: screenWidth(7.75),
+        decoration: BoxDecoration(
+          border: widget.isSelected!
+              ? BorderDirectional(
+                  bottom: BorderSide(
+                    color: AppColors.mainpurple1,
+                    width: 2,
+                  ),
+                )
+              : null,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              'assets/images/${widget.imageName}.svg',
+              color: AppColors.mainpurple1,
+              width: screenWidth(13),
+              height: screenWidth(13),
+            ),
+            if (widget.text != null) ...[
+              (screenHieght(100)).ph,
+              CustomText(
+                text: widget.text ?? "",
+                textColor: widget.isSelected!
+                    ? AppColors.hinttext
+                    : AppColors.mainpurple2,
+                fontSize: screenHieght(60),
+              ),
+            ]
+          ],
+        ),
       ),
     );
-  }
-}
-
-class navclipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path0 = Path();
-    path0.moveTo(0, 0);
-    path0.lineTo(size.width * 0.3381500, 0);
-    path0.quadraticBezierTo(size.width * 0.3731500, size.height * 0.0069000,
-        size.width * 0.3757000, size.height * 0.1236000);
-    path0.quadraticBezierTo(size.width * 0.4022000, size.height * 0.5633000,
-        size.width * 0.5006000, size.height * 0.5896000);
-    path0.quadraticBezierTo(size.width * 0.5955500, size.height * 0.5727000,
-        size.width * 0.6200000, size.height * 0.1240000);
-    path0.quadraticBezierTo(size.width * 0.6204500, size.height * -0.0157000,
-        size.width * 0.6646000, 0);
-    path0.lineTo(size.width, 0);
-    path0.lineTo(size.width, size.height);
-    path0.lineTo(0, size.height);
-    path0.lineTo(0, 0);
-    path0.lineTo(size.width * 0.6225000, size.height * 0.6100000);
-    return path0;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-}
-
-class ClipShadowShadowPainter extends CustomPainter {
-  final Shadow shadow;
-  final CustomClipper<Path> clipper;
-
-  ClipShadowShadowPainter({required this.shadow, required this.clipper});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    var paint = shadow.toPaint();
-    var clipPath = clipper.getClip(size).shift(shadow.offset);
-    canvas.drawPath(clipPath, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
   }
 }
