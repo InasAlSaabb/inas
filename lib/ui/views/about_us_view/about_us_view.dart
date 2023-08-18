@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_templete/core/translation/app_translation.dart';
 import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_shape.dart';
 import 'package:get/get.dart';
@@ -17,7 +18,7 @@ class AboutUsView extends StatelessWidget {
       body: Column(
         children: [
           CustomPaintHome(
-            lable: 'عن التطبيق',
+            lable: tr("key_about_app"),
             svgName: 'ic_arrow',
             svgHieght: screenHieght(20),
             svgWidth: screenWidth(20),
