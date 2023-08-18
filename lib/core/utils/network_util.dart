@@ -6,7 +6,7 @@ import 'package:flutter_templete/core/enums/request_type.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkUtil {
-  static String baseUrl = 'training.owner-tech.com';
+  static String baseUrl = '192.168.31.82:8000';
   static var client = http.Client();
   static Future<dynamic> sendRequest({
     required RequestType type,
@@ -18,7 +18,7 @@ class NetworkUtil {
     try {
       //!--- Required for request ----
       //*--- Make full api url ------
-      var uri = Uri.https(baseUrl, url, params);
+      var uri = Uri.http(baseUrl, url, params);
 
       //?--- To Save api response ----
       late http.Response response;
