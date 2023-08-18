@@ -4,6 +4,7 @@ import 'package:flutter_templete/core/translation/app_translation.dart';
 import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_button.dart';
+import 'package:flutter_templete/ui/shared/custom_widgets/custom_feedback.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_form.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_overlay.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_text.dart';
@@ -194,7 +195,7 @@ class _SignupViewState extends State<SignupView> {
         ),
         CustomText(
           text: tr(key),
-          fontSize: screenWidth(39),
+          fontSize: screenWidth(50),
           textColor: AppColors.hinttext,
         )
       ]),

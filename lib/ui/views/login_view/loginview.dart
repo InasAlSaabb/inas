@@ -12,8 +12,6 @@ import 'package:flutter_templete/ui/views/main_view/main_view.dart';
 import 'package:flutter_templete/ui/views/sign_up_view/sign_up_view.dart';
 import 'package:get/get.dart';
 
-import 'login_controller.dart';
-
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
 
@@ -25,7 +23,7 @@ class _LoginViewState extends State<LoginView> {
   var nameControler = TextEditingController();
   var passwordControler = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  LoginController controller = Get.put(LoginController());
+  // LoginController controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +33,7 @@ class _LoginViewState extends State<LoginView> {
       child: Padding(
         padding: EdgeInsetsDirectional.all(screenWidth(25)),
         child: SafeArea(
-          child: Column(children: [
+          child: ListView(children: [
             (screenWidth(10)).ph,
             Center(
               child: Text(
@@ -141,13 +139,15 @@ class _LoginViewState extends State<LoginView> {
               onTap: () {
                 Get.to(MainView());
               },
-              child: Text(
-                tr("key_visit"),
-                style: TextStyle(
-                  decoration: TextDecoration.underline,
-                  color: AppColors.hinttext,
-                  fontSize: screenWidth(28),
-                  fontWeight: FontWeight.normal,
+              child: Center(
+                child: Text(
+                  tr("key_visit"),
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    color: AppColors.hinttext,
+                    fontSize: screenWidth(28),
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
               ),
             )
