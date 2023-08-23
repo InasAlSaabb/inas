@@ -32,6 +32,12 @@ class ARLanguage {
         "key_personal_info": "المعلومات الشخصية",
         "key_save_change": "حفظ التغييرات",
         "key_retreate": "تراجع",
-        "key_edit": "تعديل المعلومات الشخصية"
+        "key_edit": "تعديل المعلومات الشخصية",
+        "key_category": "التصنيفات",
+        "key_search": "بحث",
+        "key_not": "الإشعارات",
+        "key_main": "الرئيسية",
+        "key_qu": "الاسئلة المهمة",
+        "key_pro": "الملف الشخصي"
       };
 }

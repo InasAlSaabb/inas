@@ -33,6 +33,12 @@ class ENLanguage {
         "key_phone": "phone number",
         "key_save_change": "save changes",
         "key_retreate": "to retreat",
-        "key_edit": "Modify personal information"
+        "key_category": "category",
+        "key_edit": "Modify personal information",
+        "key_search": "search",
+        "key_not": "notification",
+        "key_main": "main",
+        "key_qu": "important question",
+        "key_pro": "profile"
       };
 }

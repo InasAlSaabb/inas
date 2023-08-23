@@ -15,7 +15,7 @@ class MainController extends BaseController {
 
   @override
   void onInit() {
-    Name.value = "الرئيسية";
+    Name.value = tr("key_main");
     Image.value = "ic_home";
     super.onInit();
   }
@@ -26,19 +26,19 @@ class MainController extends BaseController {
     selectedPage.value = selected;
     switch (selected) {
       case BottomNavigationEnum.NOTIFICATIONS:
-        Name.value = "الاشعارات";
+        Name.value = tr("key_not");
         Image.value = "ic_notification";
         break;
       case BottomNavigationEnum.HOME:
-        Name.value = "الرئيسية";
+        Name.value = tr("key_main");
         Image.value = "ic_home";
         break;
       case BottomNavigationEnum.IMPORTANTQUESTIONS:
-        Name.value = "الاسئلة الهامة";
-        Image.value = "ic_home";
+        Name.value = tr("key_qu");
+        Image.value = "ic_arrow";
         break;
       case BottomNavigationEnum.PROFILE:
-        Name.value = "البروفايل";
+        Name.value = tr("key_pro");
         Image.value = "ic_profile";
         break;
     }

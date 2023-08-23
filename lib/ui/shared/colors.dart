@@ -11,6 +11,8 @@ class AppColors {
   static Color lightGreyColor = Color.fromRGBO(163, 170, 179, 1);
   static Color mainskycolor2 = Color.fromRGBO(185, 229, 251, 0.15);
 
+  static Color backform = Color.fromRGBO(70, 69, 71, 0.5);
+  static Color backformtext = Color.fromRGBO(70, 69, 71, 0.3);
   static Color hinttext = Color.fromRGBO(70, 69, 71, 1);
 
   static Color hinttext2 = Color.fromARGB(55, 185, 229, 250);

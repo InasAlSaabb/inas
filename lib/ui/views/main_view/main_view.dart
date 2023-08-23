@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_shape.dart';
-import 'package:flutter_templete/ui/views/home_view/home_view.dart';
+import 'package:flutter_templete/ui/views/main_view/home_view/home_view.dart';
 
 import 'package:flutter_templete/ui/views/main_view/important_question/importantQuestion.dart';
 import 'package:flutter_templete/ui/views/main_view/main_view_controller.dart';
@@ -40,9 +40,10 @@ class _MainViewState extends State<MainView> {
                 ],
               ),
               CustomPaintHome(
-                svgColor: AppColors.mainWhiteColor,
-                svgName: controller.Image.toString(),
-                lable: controller.Name.toString(),
+                quizMode: false,
+                backButton: false,
+                firstText: controller.Name.toString(),
+                imageName: controller.Image.toString(),
               ),
               PositionedDirectional(
                 bottom: 0,

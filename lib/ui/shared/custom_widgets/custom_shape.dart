@@ -1,57 +1,159 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_templete/main.dart';
+import 'package:flutter_templete/ui/shared/colors.dart';
+import 'package:flutter_templete/ui/shared/custom_widgets/custom_text.dart';
 
-import '../colors.dart';
-import '../utils.dart';
+import 'package:flutter_templete/ui/shared/utils.dart';
+import 'package:get/get.dart';
 
 class CustomPaintHome extends StatelessWidget {
-  CustomPaintHome(
-      {this.svgName, this.lable, this.svgWidth, this.svgHieght, this.svgColor});
+  const CustomPaintHome({
+    super.key,
+    this.backButton = true,
+    this.quizMode = false,
+    this.imageName,
+    this.onTap,
+    this.firstText,
+    this.secondText,
+    this.thirdText,
+  });
 
-  final String? svgName;
-
-  final String? lable;
-
-  final double? svgWidth;
-
-  final double? svgHieght;
-  final Color? svgColor;
+  final bool backButton;
+  final bool quizMode;
+  final Function? onTap;
+  final String? imageName;
+  final String? firstText;
+  final String? secondText;
+  final String? thirdText;
 
   @override
   Widget build(BuildContext context) {
     return ClipPath(
-      clipper: RPSCustomPainter(),
+      clipper: LandingClipper(),
       child: Container(
         padding: EdgeInsetsDirectional.symmetric(
           horizontal: screenWidth(20),
         ),
-        height: screenHieght(6),
+        height: screenHieght(6), //6
         decoration: BoxDecoration(
           color: AppColors.mainpurple1,
         ),
-        child: Row(
-          children: [
-            SvgPicture.asset(
-              'assets/images/${svgName}.svg',
-              width: svgWidth,
-              height: svgHieght,
-              color: svgColor,
-            ),
-            SizedBox(
-              width: screenWidth(20),
-            ),
-            Text(
-              '${lable}',
-              style: TextStyle(color: AppColors.mainWhiteColor),
-            )
-          ],
-        ),
+        child: firstText != null && secondText != null && thirdText != null
+            ? ListView(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                children: [
+                  if (backButton) ...[
+                    InkWell(
+                      onTap: () {
+                        if (quizMode) {
+                          onTap!();
+                          Get.back();
+                        } else {
+                          Get.back();
+                        }
+                      },
+                      child: SvgPicture.asset(
+                        'assets/images/ic_home.svg',
+                        width: screenWidth(14),
+                        height: screenWidth(14),
+                        color: AppColors.mainWhiteColor,
+                      ),
+                    ),
+                  ],
+                  if (!backButton) ...[
+                    InkWell(
+                      onTap: () {},
+                      child: SvgPicture.asset(
+                        'assets/images/$imageName.svg',
+                        width: screenWidth(14),
+                        height: screenWidth(14),
+                        color: AppColors.mainWhiteColor,
+                      ),
+                    ),
+                  ],
+                  if (firstText != null) ...[
+                    screenWidth(35).pw,
+                    Center(
+                      child: CustomText(
+                        text: firstText!,
+                        textColor: AppColors.mainWhiteColor,
+                      ),
+                    ),
+                  ],
+                  if (secondText != null) ...[
+                    Center(
+                      child: CustomText(
+                        text: " / ${secondText!}",
+                        textColor: AppColors.mainWhiteColor,
+                      ),
+                    ),
+                  ],
+                  if (thirdText != null) ...[
+                    Center(
+                      child: CustomText(
+                        text: " / ${thirdText!}",
+                        textColor: AppColors.mainWhiteColor,
+                      ),
+                    ),
+                  ],
+                ],
+              )
+            : Row(
+                children: [
+                  if (backButton) ...[
+                    InkWell(
+                      onTap: () {
+                        if (quizMode) {
+                          onTap!();
+                          Get.back();
+                        } else {
+                          Get.back();
+                        }
+                      },
+                      child: SvgPicture.asset(
+                        'assets/images/ic_back.svg',
+                        width: screenWidth(14),
+                        height: screenWidth(14),
+                        color: AppColors.mainWhiteColor,
+                      ),
+                    ),
+                  ],
+                  if (!backButton) ...[
+                    InkWell(
+                      onTap: () {},
+                      child: SvgPicture.asset(
+                        'assets/images/$imageName.svg',
+                        width: screenWidth(14),
+                        height: screenWidth(14),
+                        color: AppColors.mainWhiteColor,
+                      ),
+                    ),
+                  ],
+                  if (firstText != null) ...[
+                    SizedBox(
+                      width: screenWidth(20),
+                    ),
+                    CustomText(
+                      text: firstText!,
+                      textColor: AppColors.mainWhiteColor,
+                    ),
+                  ],
+                  if (secondText != null) ...[
+                    CustomText(
+                      text: " / ${secondText!}",
+                      textColor: AppColors.mainWhiteColor,
+                    ),
+                  ],
+                ],
+              ),
       ),
     );
   }
 }
 
-class RPSCustomPainter extends CustomClipper<Path> {
+class LandingClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path_0 = Path();

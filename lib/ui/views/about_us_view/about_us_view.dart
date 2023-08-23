@@ -17,11 +17,10 @@ class AboutUsView extends StatelessWidget {
       body: Column(
         children: [
           CustomPaintHome(
-            lable: tr("key_about_app"),
-            svgName: 'ic_arrow',
-            svgHieght: screenHieght(20),
-            svgWidth: screenWidth(20),
-            svgColor: AppColors.mainWhiteColor,
+            firstText: tr("key_about_app"),
+            imageName: 'ic_arrow',
+            quizMode: false,
+            backButton: false,
           ),
           (screenWidth(10)).ph,
           SvgPicture.asset(

@@ -30,11 +30,10 @@ class _UpdateDetailesState extends State<UpdateDetailes> {
       child: Column(
         children: [
           CustomPaintHome(
-            lable: tr("key_edit"),
-            svgName: 'ic_user',
-            svgHieght: screenHieght(20),
-            svgWidth: screenWidth(20),
-            svgColor: AppColors.mainWhiteColor,
+            firstText: tr("key_edit"),
+            imageName: 'ic_user',
+            quizMode: false,
+            backButton: false,
           ),
           (screenWidth(4)).ph,
           Align(
