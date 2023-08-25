@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
             home: SplashSceenView()));
   }
 }
+/////// helllo
 
 Locale getlocal() {
   if (storage.getAppLanguage() == 'ar') {
